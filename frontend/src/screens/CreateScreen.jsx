@@ -20,7 +20,7 @@ export default function CreateScreen({ onQuizCreated, onBack }) {
 
   // ── Check if an AI key is configured on mount ──────────────────────────────
   useEffect(() => {
-    fetch('/api/check-key')
+    fetch('https://abel-hackathon.onrender.com/api/check-key')
       .then((r) => r.json())
       .then(setKeyStatus)
       .catch(() => setKeyStatus({ ready: false, engine: null }));
@@ -51,7 +51,7 @@ export default function CreateScreen({ onQuizCreated, onBack }) {
     formData.append('pdf', file);
 
     try {
-      const res  = await fetch('/api/quizzes', { method: 'POST', body: formData });
+      const res  = await fetch('https://abel-hackathon.onrender.com/api/quizzes', { method: 'POST', body: formData });
       const data = await res.json();
 
       if (!res.ok) throw new Error(data.error || 'Failed to generate quiz.');

@@ -18,7 +18,7 @@ export default function PlayScreen({ quizId, initialData, onComplete, onNotFound
   // Fetch quiz if not already loaded
   useEffect(() => {
     if (!quiz && quizId) {
-      fetch(`/api/quizzes/${quizId}`)
+      fetch(`https://abel-hackathon.onrender.com/api/quizzes/${quizId}`)
         .then((r) => r.json())
         .then((data) => {
           if (data.error) {
