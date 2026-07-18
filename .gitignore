@@ -8,14 +8,20 @@ frontend/node_modules/
 backend/.env
 frontend/.env
 *.env.local
+*.local
 
 # Databases
 *.db
 backend/quizforge.db
 
 # Logs
+logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
 # Production build outputs
 dist/
@@ -25,3 +31,13 @@ build/
 # OS/System files
 .DS_Store
 Thumbs.db
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
