@@ -12,13 +12,12 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.112.2",
+    "@google/generative-ai": "^0.24.1",
     "better-sqlite3": "^12.11.1",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "multer": "^2.2.0",
-    "pdf-parse": "^1.1.1",
     "uuid": "^14.0.1"
   }
 }
