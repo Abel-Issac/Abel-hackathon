@@ -153,13 +153,9 @@ export default function CreateScreen({ onQuizCreated, onBack }) {
         >
           <p className="font-mono" style={{ color: '#ffaa00', fontSize: '0.82rem', lineHeight: 1.6 }}>
             ⚠ <strong>NO AI KEY CONFIGURED</strong> — Quiz generation requires an API key.<br />
-            Open <code style={{ color: 'var(--cyan)' }}>backend/.env</code> and set either:
+            Open <code style={{ color: 'var(--cyan)' }}>backend/.env</code> and set:
           </p>
           <div style={{ marginTop: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-            <p className="font-mono" style={{ color: 'var(--text-secondary)', fontSize: '0.78rem' }}>
-              <span style={{ color: '#ffaa00' }}>ANTHROPIC_API_KEY</span>=sk-ant-api03-... &nbsp;
-              <a href="https://console.anthropic.com/" target="_blank" rel="noreferrer" style={{ color: 'var(--cyan)' }}>[get key]</a>
-            </p>
             <p className="font-mono" style={{ color: 'var(--text-secondary)', fontSize: '0.78rem' }}>
               <span style={{ color: '#ffaa00' }}>GEMINI_API_KEY</span>=AIzaSy... &nbsp;
               <a href="https://aistudio.google.com/" target="_blank" rel="noreferrer" style={{ color: 'var(--cyan)' }}>[get free key]</a>
