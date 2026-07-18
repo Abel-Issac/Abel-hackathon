@@ -45,7 +45,7 @@ async function processPDFAndGenerateQuiz(pdfBuffer) {
   }
 
   const genAI = new GoogleGenerativeAI(geminiKey);
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
 
   const prompt = `You are an expert quiz generator. Carefully read the provided document and generate multiple choice questions (MCQs) that test deep understanding of the specific content in this document. 
   Generate between 10 to 15 questions based on the length of the document.
@@ -154,7 +154,7 @@ app.get('/api/check-key', (req, res) => {
   const hasGemini = !!(process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'your_gemini_api_key_here');
   res.json({
     ready: hasGemini,
-    engine: hasGemini ? 'gemini-2.5-flash (SDK)' : null,
+    engine: hasGemini ? 'gemini-3.5-flash (SDK)' : null,
   });
 });
 
