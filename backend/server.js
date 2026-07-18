@@ -219,11 +219,9 @@ app.post('/api/quizzes', upload.single('pdf'), async (req, res) => {
 
   // Save to database
   const quizId = uuidv4();
-  const db = await getDb();
-  await db.run(
-    'INSERT INTO quizzes (id, title, questions_json) VALUES (?, ?, ?)',
-    [quizId, quizData.quiz_title, JSON.stringify(quizData.questions)]
-  );
+  const db = getDb();
+  db.prepare('INSERT INTO quizzes (id, title, questions_json) VALUES (?, ?, ?)')
+    .run(quizId, quizData.quiz_title, JSON.stringify(quizData.questions));
 
   console.log(`[QUIZ//FORGE] Quiz saved: ${quizId} — "${quizData.quiz_title}" (${quizData.questions.length} questions)`);
 
@@ -238,8 +236,8 @@ app.post('/api/quizzes', upload.single('pdf'), async (req, res) => {
 // GET /api/quizzes/:id — Fetch a saved quiz by ID
 app.get('/api/quizzes/:id', async (req, res) => {
   const { id } = req.params;
-  const db = await getDb();
-  const row = await db.get('SELECT * FROM quizzes WHERE id = ?', [id]);
+  const db = getDb();
+  const row = db.prepare('SELECT * FROM quizzes WHERE id = ?').get(id);
   if (!row) return res.status(404).json({ error: 'Quiz not found' });
   res.json({
     id: row.id,

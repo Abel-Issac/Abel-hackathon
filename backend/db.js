@@ -1,17 +1,13 @@
-const sqlite3 = require('sqlite3');
-const { open } = require('sqlite');
+const Database = require('better-sqlite3');
 const path = require('path');
 
 let db;
 
-async function getDb() {
+function getDb() {
   if (!db) {
-    db = await open({
-      filename: path.join(__dirname, 'quizforge.db'),
-      driver: sqlite3.Database,
-    });
+    db = new Database(path.join(__dirname, 'quizforge.db'));
 
-    await db.exec(`
+    db.exec(`
       CREATE TABLE IF NOT EXISTS quizzes (
         id TEXT PRIMARY KEY,
         title TEXT NOT NULL,
